@@ -17,12 +17,12 @@ Widget cardCondition(){
       child: Container(
         padding: EdgeInsets.only(top: 10, left: 10, right: 10),
         child: Column(
-          children: [
+          children: <Widget>[
             Container(
               child: Row(
                 children: [
                   circularChart(),
-                  SizedBox(width: 5,),
+                  SizedBox(width: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
@@ -34,11 +34,22 @@ Widget cardCondition(){
                           fontSize: 16)
                       ),
                       Text('Your financial condition is god', style: TextStyle(color: colorTextoSecundario))
-                      
                     ],
                   )
                 ],
               ),
+            ),
+            SizedBox(height: 12,),
+            Divider(height: 0.5,),
+            FlatButton(
+              onPressed: () { }, 
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('View Statistic', style: TextStyle(color: colorPrimario, fontWeight: FontWeight.w400),),
+                  Icon(Icons.keyboard_arrow_right, color: colorPrimario,)
+                ],
+              )
             )
           ],
         ),
@@ -75,7 +86,14 @@ Widget circularChart() {
           )
         ],
         chartType: CircularChartType.Radial,
-        )
+        percentageValues: true,
+        holeLabel: '80',
+        labelStyle: const TextStyle(
+          color: colorTextoBlanco,
+          fontWeight: FontWeight.w500,
+          fontSize: 18
+        ),
+      )
     ],
   );
 }

@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
             children: [
               appBar(),
               total('1,750.50'),
+              SizedBox(height: 15),
               cardCondition()
             ],
           )
