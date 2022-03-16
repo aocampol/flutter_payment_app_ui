@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payment_app_ui/src/constants/constants.dart';
 import 'package:payment_app_ui/src/widgets/appbar_widget.dart';
 import 'package:payment_app_ui/src/widgets/card_condition_widget.dart';
+import 'package:payment_app_ui/src/widgets/cards_detail_widget.dart';
 import 'package:payment_app_ui/src/widgets/total_widget.dart';
 
 
@@ -20,7 +21,9 @@ class HomePage extends StatelessWidget {
               appBar(),
               total('1,750.50'),
               SizedBox(height: 15),
-              cardCondition()
+              cardCondition(),
+              SizedBox(height: 10,),
+              CardsDetail()
             ],
           )
         ],

@@ -47,7 +47,7 @@ Widget cardCondition(){
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('View Statistic', style: TextStyle(color: colorPrimario, fontWeight: FontWeight.w400),),
-                  Icon(Icons.keyboard_arrow_right, color: colorPrimario,)
+                  Icon(Icons.keyboard_arrow_right, color: colorPrimario)
                 ],
               )
             )
