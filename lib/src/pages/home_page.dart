@@ -3,6 +3,7 @@ import 'package:payment_app_ui/src/constants/constants.dart';
 import 'package:payment_app_ui/src/widgets/appbar_widget.dart';
 import 'package:payment_app_ui/src/widgets/card_condition_widget.dart';
 import 'package:payment_app_ui/src/widgets/cards_detail_widget.dart';
+import 'package:payment_app_ui/src/widgets/circulos_widget.dart';
 import 'package:payment_app_ui/src/widgets/total_widget.dart';
 
 
@@ -38,36 +39,18 @@ class HomePage extends StatelessWidget {
       color: colorPrimario,
     );
 
-    final circulo1 = Container(
-      height: 150,
-      width: 150,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(80),
-        color: colorCirculo.withOpacity(0.3)
-      ),
-    );
-
-    final circulo2 = Container(
-      height: 100,
-      width: 100,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(80),
-        color: colorCirculo.withOpacity(0.3)
-      ),
-    );
-
     return Stack(
       children: [
         boxTop,
         Positioned(
           left: -50,
           top: -65,
-          child: circulo1
+          child: circulo1()
         ),
         Positioned(
           right: -25,
           top: -48,
-          child: circulo2,
+          child: circulo2(),
         )
       ],
     );
