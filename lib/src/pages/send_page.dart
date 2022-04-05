@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_ui/src/constants/constants.dart';
+import 'package:payment_app_ui/src/widgets/card_send_widget.dart';
 import 'package:payment_app_ui/src/widgets/circulos_widget.dart';
 
 class SendPage extends StatelessWidget {
@@ -10,7 +11,8 @@ class SendPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          _fondo()
+          _fondo(),
+          CardSend()
         ],
       )
     );
