@@ -12,7 +12,7 @@ class SendPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           _fondo(),
-          CardSend()
+          const CardSend()
         ],
       )
     );

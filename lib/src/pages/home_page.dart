@@ -21,10 +21,10 @@ class HomePage extends StatelessWidget {
             children: [
               appBar(),
               total('1,750.50'),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               cardCondition(),
-              SizedBox(height: 10,),
-              CardsDetail()
+              const SizedBox(height: 10,),
+              const CardsDetail()
             ],
           )
         ],

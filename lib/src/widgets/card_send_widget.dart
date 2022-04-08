@@ -10,7 +10,7 @@ class CardSend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 100, bottom: 30, left: 20, right: 20),
+      padding: const EdgeInsets.only(top: 100, bottom: 30, left: 20, right: 20),
       child: Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
@@ -22,13 +22,13 @@ class CardSend extends StatelessWidget {
             _fondoCard(),
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(top: 60, left: 10, right: 10),
+              padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
               child: Column(
                 children: [
                   iconSend(),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       children: [
                         TextSpan(
                           text: 'Send successfully to ', 
@@ -48,8 +48,8 @@ class CardSend extends StatelessWidget {
                       ]
                     )
                   ),
-                  SizedBox(height: 20,),
-                  Text(
+                  const SizedBox(height: 20,),
+                  const Text(
                     '\$100.00', 
                     style: TextStyle(
                       color: colorPrimario,
@@ -57,13 +57,13 @@ class CardSend extends StatelessWidget {
                       fontWeight: FontWeight.bold
                     )
                   ),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
                   cuentaOrigen(),
-                  SizedBox(height: 10),
-                  Divider(),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
+                  const Divider(),
+                  const SizedBox(height: 10),
                   RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       children: [
                         TextSpan(
                           text: 'Transaction done on ', 
@@ -76,20 +76,26 @@ class CardSend extends StatelessWidget {
                       ]
                     )
                   ),
-                  SizedBox(height: 5,),
-                  Text('Your reference number is 03492390', style: TextStyle(color: colorTextoSecundario, fontSize: 12)),
-                  SizedBox(height: 30),
-                  Container(
+                  const SizedBox(height: 5,),
+                  const Text('Your reference number is 03492390', style: TextStyle(color: colorTextoSecundario, fontSize: 12)),
+                  const SizedBox(height: 30),
+                  SizedBox(
                     height: 40,
-                    child: RaisedButton(
-                      onPressed: (){},
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80)
-                      ),
-                      padding: EdgeInsets.all(0),
+                    child: TextButton(
+                      onPressed: (){
+                        Navigator.pop(context);
+                      },
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80),
+                          )
+                        ),
+                        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(0)),
+                      ),                      
                       child: Ink(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             transform: GradientRotation(-80),
                             colors: [
                               colorSecundario,
@@ -101,12 +107,12 @@ class CardSend extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20)
                         ),
                         child: Container(
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             maxWidth: 300,
                             minWidth: 50
                           ),
                           alignment: Alignment.center,
-                          child: Text('Continue', style: TextStyle(color: colorTextoBlanco, fontSize: 16, fontWeight: FontWeight.bold),),
+                          child: const Text('Continue', style: TextStyle(color: colorTextoBlanco, fontSize: 16, fontWeight: FontWeight.bold),),
                         ),
                       )
                     ),
@@ -121,23 +127,19 @@ class CardSend extends StatelessWidget {
   }
 
   Widget _fondoCard() {
-    return Container(
-      // width: 350,
-      // height: 455,
-      child: Stack(
-        children: [
-          Positioned(
-            left: -80,
-            top: -80,
-            child: circulo1()
-          ),
-          Positioned(
-            right: -90,
-            bottom: -90,
-            child: circulo1()
-          )
-        ],
-      ),
+    return Stack(
+      children: [
+        Positioned(
+          left: -80,
+          top: -80,
+          child: circulo1()
+        ),
+        Positioned(
+          right: -90,
+          bottom: -90,
+          child: circulo1()
+        )
+      ],
     );
   }
 }

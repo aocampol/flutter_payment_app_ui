@@ -9,7 +9,7 @@ Widget iconSend() {
         backgroundColor: colorSecundario.withOpacity(0.3),
         child: Image.asset('assets/send.png', color: colorSecundario, width: 25,),
       ),
-      Positioned(
+      const Positioned(
         right: 3,
         bottom: 4,
         child: CircleAvatar(

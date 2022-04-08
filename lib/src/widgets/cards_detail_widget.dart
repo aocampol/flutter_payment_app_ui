@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app_ui/src/constants/constants.dart';
+import 'package:payment_app_ui/src/pages/send_page.dart';
 
 class CardsDetail extends StatelessWidget {
   const CardsDetail({Key? key}) : super(key: key);
@@ -11,8 +12,8 @@ class CardsDetail extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Detail Information', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-          SizedBox(height: 5,),
+          const Text('Detail Information', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+          const SizedBox(height: 5,),
           cardsTable(context)
         ],
       ),
@@ -24,7 +25,19 @@ class CardsDetail extends StatelessWidget {
       children: [
         TableRow(
           children: [ 
-            _card('assets/send.png', colorSecundario, 'Send Money', 80.50),
+            GestureDetector(
+              child: _card(
+                'assets/send.png', 
+                colorSecundario, 
+                'Send Money', 
+                80.50),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const  SendPage()),
+                  );
+                },
+            ),
             _card('assets/pagar1.png', colorPrimario, 'Pay Items', 150.15),
           ]
         ),
@@ -40,13 +53,13 @@ class CardsDetail extends StatelessWidget {
 
   Widget _card(String icono, Color color, String titulo, double monto) {
     return Container(
-      margin: EdgeInsets.only(right: 5, left: 5, top: 10),
-      padding: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.only(right: 5, left: 5, top: 10),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0,10),
+            offset: const Offset(0,10),
             blurRadius: 30,
             color: sombraColor
           )
@@ -59,9 +72,9 @@ class CardsDetail extends StatelessWidget {
             backgroundColor: color.withOpacity(0.2),
             child: Image.asset(icono, color: color, width: 20,),
           ),
-          SizedBox(height: 10,),
-          Text(titulo, style: TextStyle(color: colorTextoSecundario, fontSize: 11)),
-          Text('\$$monto', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),)
+          const SizedBox(height: 10,),
+          Text(titulo, style: const TextStyle(color: colorTextoSecundario, fontSize: 11)),
+          Text('\$$monto', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),)
         ]
       ),
     );

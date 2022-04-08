@@ -3,7 +3,7 @@ import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 
 import 'package:payment_app_ui/src/constants/constants.dart';
 
-GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
+GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 Widget cardCondition(){
   final card = Padding(
@@ -15,40 +15,38 @@ Widget cardCondition(){
       ),
       color: Colors.white,
       child: Container(
-        padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: Column(
           children: <Widget>[
-            Container(
-              child: Row(
-                children: [
-                  circularChart(),
-                  SizedBox(width: 5),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Good Financial', 
-                        style: TextStyle(
-                          color: colorTextoTitulo, 
-                          fontWeight: FontWeight.bold, 
-                          fontSize: 16)
-                      ),
-                      Text('Your financial condition is god', style: TextStyle(color: colorTextoSecundario))
-                    ],
-                  )
-                ],
-              ),
+            Row(
+              children: [
+                circularChart(),
+                const SizedBox(width: 5),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Good Financial', 
+                      style: TextStyle(
+                        color: colorTextoTitulo, 
+                        fontWeight: FontWeight.bold, 
+                        fontSize: 16)
+                    ),
+                    Text('Your financial condition is god', style: TextStyle(color: colorTextoSecundario))
+                  ],
+                )
+              ],
             ),
-            SizedBox(height: 12,),
-            Divider(height: 0.5,),
-            FlatButton(
+            const SizedBox(height: 12,),
+            const Divider(height: 0.5,),
+            TextButton(
               onPressed: () { }, 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('View Statistic', style: TextStyle(color: colorPrimario, fontWeight: FontWeight.w400),),
-                  Icon(Icons.keyboard_arrow_right, color: colorPrimario)
-                ],
+                  Icon(Icons.keyboard_arrow_right, color: colorPrimario,)
+                ]
               )
             )
           ],
@@ -75,11 +73,11 @@ Widget circularChart() {
       AnimatedCircularChart(
         holeRadius: 18,
         key: _chartKey,
-        size: Size(55, 55), 
+        size: const Size(55, 55), 
         initialChartData: <CircularStackEntry>[
           CircularStackEntry(
             <CircularSegmentEntry>[
-              CircularSegmentEntry(80, colorPrimario, rankKey: 'Completado'),
+              const CircularSegmentEntry(80, colorPrimario, rankKey: 'Completado'),
               CircularSegmentEntry(20, colorCirculo.withOpacity(0.7), rankKey: 'Resto')
             ],
             rankKey: 'Progreso'
